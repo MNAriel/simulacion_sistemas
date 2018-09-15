@@ -1,0 +1,11 @@
+commit 5d5579b0b0d67962319d144d5171f286eff40f70
+Author: MNAriel <arigato20amn@gmail,com>
+Date:   Sat Sep 15 16:02:28 2018 -0400
+
+    se agrego mvc al proyecto
+
+commit 12234c3954f64c515ebbac2a7132de0f213fecdc
+Author: MNAriel <arigato20amn@gmail,com>
+Date:   Sun Sep 9 18:22:13 2018 -0400
+
+    creacion de la pagina y segunda practica terminada
