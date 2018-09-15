@@ -84,26 +84,33 @@
             <table class="table">
               <form class="form-inline" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-                <div class="form-group col-xs-3"></div>
+                <div class="form-group col-xs-2"></div>
 
-                <div class="form-group col-xs-2""> 
+                <div class="form-group col-xs-2"> 
                   <p for="email_id" class="control-label text-center">a</p>
                   <input type="text" class="form-control" name="a" placeholder="const. multiplicativa">
                 </div>
 
-                <div class="form-group col-xs-2""> 
+                <div class="form-group col-xs-2"> 
                   <p for="email_id" class="control-label text-center">m</p>
                   <input type="text" class="form-control" name="m" placeholder="modulo">
                 </div>
 
-                <div class="form-group col-xs-2""> 
+                <div class="form-group col-xs-2"> 
                   <p for="email_id" class="control-label text-center">Xo</p>
                   <input type="text" class="form-control" name="xo" placeholder="semilla">
                 </div>
+
+                <div class="form-group col-xs-2"> 
+                  <p for="variable_c" class="control-label text-center">c</p>
+                  <input type="text" class="form-control" name="c" placeholder="constante">
+                </div>
+                
                 <div class="form-group col-xs-5"></div>
                 <div class="form-group col-xs-4"> 
                   <button type="submit" name="submit" class="btn btn-primary">Calcular</button>
-                </div>   
+                </div> 
+
               </form>
               <thead class="thead-dark">
                 <tr>
@@ -138,16 +145,21 @@
                       echo '<script language="javascript">alert("La Semilla es requerida");</script>'; 
                         $errores[] = "La Semilla es requerida";
                     }
-                    function value($x0,$a,$m){
-                          return (($a * $x0) % $m);
+                    if(empty($_POST["c"])){
+                      echo '<script language="javascript">alert("Constante es requerida");</script>'; 
+                        $errores[] = "Constante es requerida";
+                    }
+                    function value($x0,$a,$m,$c){
+                          return (($a * $x0 + $c) % $m);
                         }
                     if(empty($errores)) {
 
                           $a = filtrado($_POST["a"]);
                           $m = filtrado($_POST["m"]);
                           $x0 = filtrado($_POST["xo"]);
+                          $c = filtrado($_POST["c"]);
                           $i = 1;
-                          $aXi = value($x0,$a,$m);
+                          $aXi = value($x0,$a,$m,$c);
                           $aXn = $x0*$a;
                           //echo $x0 . ' ' .  $aXi .  ' ' . $aXn . ' ' . "\n";
                           echo '<tr>';
@@ -160,7 +172,7 @@
                             $i = $i+1;
                             $xn = $aXi;
                             $aXn = $aXi*$a;
-                            $aXi = value($aXi,$a,$m);
+                            $aXi = value($aXi,$a,$m,$c);
                             // echo $i . ' ' . $xn . ' ' . $aXn . ' ' . $aXi . ' ' . "\n";
                             echo '<tr>';
                             echo '<td> '.$i.'</td>';
