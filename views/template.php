@@ -31,10 +31,6 @@
     <hr>
 
     <!-- Footer -->
-    <?php
-
-        include "/modules/footer.php";
-    ?>
 
     <!-- Bootstrap core JavaScript -->
     

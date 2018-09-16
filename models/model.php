@@ -5,7 +5,9 @@
 
             if($enlaces == "inicio" ||
                $enlaces == "integrantes" ||
-               $enlaces == "practicas") {
+               $enlaces == "practicas" ||
+               $enlaces == "practica1" ||
+               $enlaces == "practica2") {
 
                 $module = "views/modules/".$enlaces.".php";
 

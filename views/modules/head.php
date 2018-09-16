@@ -20,6 +20,13 @@
 <script src="views/vendor/jquery/jquery.min.js"></script>
 <script src="views/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+
+<link href="views/css/clean-blog.min.css" rel="stylesheet">
+
+
     <!-- Custom scripts for this template -->
 <script src="views/js/clean-blog.min.js"></script>
+
+
+
 </head>
